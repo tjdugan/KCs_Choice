@@ -1,0 +1,70 @@
+{% extends 'kcs_choice/base2.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid main-home">
+    <div class="row" style="margin-top: 3em;">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse" style="margin-top: 3em;">
+        <div class="position-sticky pt-3">
+          <ul class="nav flex-column">
+            {% for item in arranged %}
+            <li class="nav-item>">
+                <a class="nav-link" href="#">
+                    {{ item }}
+                </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </nav>
+  
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Vote</h1>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+              <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            </div>
+          </div>
+        </div>
+  
+        <!--<canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>-->
+        
+        <div class="container px-4 main-div">
+            <div class="row gx-5">
+        <h2>Which One Do You Like Better?</h2>
+        <div class="table-responsive">
+            <form method="POST" id="compare" action="{% url 'results' %}"> 
+              {% csrf_token %}
+              <div class="hidden">
+              <input type="radio" id="radio-item-1" name="item" value="{{ compare.0 }}">
+              <input type="radio" id="radio-item-2" name="item" value="{{ compare.1 }}">
+              <input type="hidden" id="choices-1" name="choices-1" value="{{ compare.0 }}">
+              <input type="hidden" id="choices-2" name="choices-2" value="{{ compare.1 }}">
+              </div>
+          <table class="table table-striped table-sm">
+            <tbody>
+                <tr>
+                  <td><image id="btn-1" class="img-btn" type="image" src="{% static '/img/headphone.png' %}" name="submit1" alt="submit1"/></td>
+                  <td><image id="btn-2" class="img-btn" type="image" src="{% static '/img/speaker.png' %}" name="submit2" alt="submit2"/> </td>
+                </tr>
+                <tr>
+                  {% for c in compared_objs %}
+                  <td>
+                    <label for="submit1" style="color: white;">{{ c.title }}</label>
+                  </td>
+                  {% endfor %}
+                </tr>
+              </tbody>
+            </table>
+        </form>
+          </div>  
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  {% endblock %}

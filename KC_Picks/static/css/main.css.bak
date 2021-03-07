@@ -1,0 +1,49 @@
+body {
+    background: url('/static/img/bg1.gif') 80% no-repeat;
+    background-position: 5% 2%;
+    background-color: #1c1c1b;
+}
+
+.main-home {
+    margin-top: 5em;
+    color: white;
+    background-color: black;
+   
+}
+
+.main-vote {
+    margin-left: 10em;
+    margin-right: 5em;
+}
+
+.table {
+    width: 80%;
+    margin-left:10rem;
+}
+
+.table>:not(caption)>*>* {
+    border-bottom-width: 0px;
+}
+
+#btn-1 {
+    background-image: url('static/img/headphone.png');
+}
+.img-btn {
+
+    width: 16em;
+    height: 15em;
+}
+
+.hidden {
+    display: none;
+}
+
+.nav{
+    list-style: initial;
+}
+
+@media (max-width: 991px){
+    .main-div{
+        text-align: left;
+    }
+}

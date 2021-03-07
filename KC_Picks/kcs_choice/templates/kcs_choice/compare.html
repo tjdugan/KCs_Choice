@@ -1,0 +1,9 @@
+{% extends 'kcs_choice/base.html' %}
+
+{% block content %}
+<h1>Welcome!!!</h1>
+
+{% for item in object_list %}
+    <h2><a href="{% url 'item_info' item.pk %}" target="_blank"> {{ item.title }}</a></h2>
+{% endfor %}
+{% endblock %}

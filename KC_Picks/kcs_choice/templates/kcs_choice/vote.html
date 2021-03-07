@@ -1,0 +1,66 @@
+{% extends 'kcs_choice/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Vote</title>
+{% endblock %}
+
+{% block content %}
+<!-- Start Sidebar -->
+<nav id="sidebar">
+    <div class="sidebar-header">
+        <h4>Beatles Songs:</h4>
+        <hr />
+    </div>
+    <ol class="components">
+        {% for item in arranged %}
+        <li>{{ item }}!</li>
+       {% endfor %}
+    </ol>
+</nav>
+<!-- End Sidebar -->
+
+<div id="content">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <button type="button" id="sidebarCollapse" class="btn">
+                <i class="fas fa-align-left"></i>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Main Body -->
+    <div class="main main-body">
+        <h1 class="vote-heading">Which song is better?</h1>
+        <div class="table-responsive">
+            <form method="POST" id="compare" action="{% url 'results' %}"> 
+              {% csrf_token %}
+              <div class="hidden">
+              <input type="radio" id="radio-item-1" name="item" value="{{ compare.0 }}">
+              <input type="radio" id="radio-item-2" name="item" value="{{ compare.1 }}">
+              <input type="hidden" id="choices-1" name="choices-1" value="{{ compare.0 }}">
+              <input type="hidden" id="choices-2" name="choices-2" value="{{ compare.1 }}">
+              </div>
+
+              <table class="table table-striped table-sm">
+                <tbody>
+                    <tr>
+                        <td><image id="btn-1" class="img-btn" type="image" src="{% static '/img/headphone.png' %}" name="submit1" alt="submit1"/></td>
+                        <td><image id="btn-2" class="img-btn" type="image" src="{% static '/img/speaker.png' %}" name="submit2" alt="submit2"/> </td>
+                    </tr>
+                    <tr>
+                        {% for c in compared_objs %}
+                        <td>
+                            <label for="submit1" style="color: white;">{{ c.title }}</label>
+                        </td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+              </table>
+            </form>
+        </div>  
+    </div>
+
+</div>
+{% endblock %}

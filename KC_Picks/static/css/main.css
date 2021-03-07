@@ -1,0 +1,141 @@
+body {
+    font-family: "Roboto", sans-serif;
+    /*background: #151515;*/
+    background: url('/static/img/bg1.gif') 80% fixed no-repeat;
+    background-color: #1C1C1C;
+    background-position: 10% 50%;
+}
+
+.user-info {
+    font-family: 'Spartan', sans-serif;
+    padding-left:20px;
+}
+
+.main-body-home {
+    padding-top: 30px;
+    width: 100%;
+    text-align: center;
+    color:#fff;
+}
+
+.btn {
+    background-color: black;
+    color: #fff;
+}
+
+.table {
+    width: 80%;
+    margin-left:10rem;
+    text-align: center;
+}
+
+.table>:not(caption)>*>* {
+    border-bottom-width: 0px;
+}
+
+#btn-1 {
+    background-image: url('static/img/headphone.png');
+}
+.img-btn {
+
+    width: 16em;
+    height: 15em;
+}
+
+.hidden {
+    display: none;
+}
+
+.vote-heading {
+    color: #fff;
+    text-align: center;
+}
+
+/* Header */
+header {
+    background-color: black;
+    color: #fff;
+    padding: 20px;
+    border-bottom: 2px;
+    border-color: #fff;
+}
+
+header a {
+    color: #fff;
+}
+
+header a:hover {
+    color: #515153;
+}
+
+.logo-span {
+    padding-left:25px ;
+}
+
+.left_area {
+    color: #fff;
+}
+
+.right_area {
+    float: right;
+    margin-top: -20px;
+}
+
+/* Sidebar */
+.wrapper {
+    display: flex;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar {
+    padding-top: 40px;
+    padding-left: 10px;
+    min-width: 260px;
+    max-width: 260px;
+    background: black;
+    color:#fff;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar.sidebar-header {
+    padding: 20px;
+
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+.ordered {
+    display: list-item;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        background-image: none;
+    background-color: #151515;
+    background-position: 79% 15%;
+    text-align: left;
+    }
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
+
+

@@ -1,0 +1,51 @@
+{% extends 'kcs_choice/base.html' %}
+{% load static %}
+
+{% block meta %}
+      <meta http-equiv = "refresh" content = "0.0003; url = {% url 'vote' %}" />
+{% endblock %}
+
+{% block content %}
+
+<div class="main-home">
+    
+    <div class="row">
+        <div class="col col-sm-2">
+            <ol>
+            {% for item in arranged %}
+                    <li>{{ item }}</li>
+            {% endfor %}
+            </ol>
+        </div>
+        
+        <div class="col col-sm-8 main-vote">
+            <h1>Vote</h1>
+
+            <div class="table-responsive">
+            <form method="POST" id="compare" action="{% url 'results' %}"> 
+              {% csrf_token %}
+              <div class="hidden">
+              <input type="radio" id="radio-item-1" name="item" value="{{ compare.0 }}">
+              <input type="radio" id="radio-item-2" name="item" value="{{ compare.1 }}">
+              <input type="hidden" id="choices-1" name="choices-1" value="{{ compare.0 }}">
+              <input type="hidden" id="choices-2" name="choices-2" value="{{ compare.1 }}">
+              </div>
+
+                <table class="table tbl-1">
+                    <tbody>
+                      <tr>
+                        <td><image id="btn-1" class="img-btn" type="image" src="{% static '/img/headphone.png' %}" name="dummy-submit1" alt="submit1"/></td>
+                        <td><image id="btn-2" class="img-btn" type="image" src="{% static '/img/speaker.png' %}" name="dummy-submit2" alt="submit2"/> </td>
+                      </tr>
+                      <tr>
+
+                      </tr>
+                    </tbody>
+                  </table>
+              </form>
+              </div>
+        </div>
+</div>
+</div>
+
+{% endblock %}

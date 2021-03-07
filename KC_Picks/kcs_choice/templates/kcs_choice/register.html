@@ -1,0 +1,67 @@
+{% extends 'kcs_choice/base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/forms.css' %}">
+{% endblock %}
+
+{% block title %}
+<title>Register</title>
+{% endblock %}
+
+{% block content %}
+<div class="main main-body-home" style="background:#1C1C1C; padding-bottom: 100px;">
+    <div class="home container">
+        <h1>Welcome to K.C.'s Choice</h1>
+    
+    <div class="card bg-dark">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+                <h4 class="card-title mt-3 text-center">Create Account</h4>
+                <p class="text-center">Get started with your free account</p>
+                
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user" style="margin: 6px;"></i> </span>
+                     </div>
+                    {% render_field form.username class='form-control' placeholder='Create a Username' %}
+                </div> <!-- form-group// -->
+            
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-envelope" style="margin: 6px;"></i> </span>
+                     </div>
+                    {% render_field form.email class='form-control' placeholder='Email Address' %}
+                </div> <!-- form-group// -->
+                
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock" style="margin: 6px;"></i> </span>
+                    </div>
+                    {% render_field form.password1 class='form-control' placeholder='Create Password' %}
+                </div> <!-- form-group// -->
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock" style="margin: 6px;"></i> </span>
+                    </div>
+                    {% render_field form.password2 class='form-control' placeholder='Enter Password Again' %}
+                </div> <!-- form-group// -->  
+
+                <div class="form-group" style="padding-top:20px;">
+                    <button type="submit" class="btn btn-primary btn-block" style="background-color: cornflowerblue;"> Create Account  </button>
+                </div> <!-- form-group// --> 
+
+                <p class="text-center" id="message message-warning" style="color: red; background: darkgray;">{{ form.errors }}</p>     
+                <p class="text-center" style="padding-top: 20px;">Have an account? <a href="{% url 'login' %}">Log In</a> </p>                                                                 
+            </form>
+        </article>
+    </div> <!-- card.// -->
+
+        
+    </div>
+</div>
+
+{% endblock %}

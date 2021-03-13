@@ -20,6 +20,25 @@ def parse_to_array(csv):
     return_list = csv.split(",")
     return return_list
 
+# Sets Curren Ratings and valdates lengths match
+def set_current_ratings(current_list,current_ratings):
+    new_rating = parse_to_array(current_ratings.ratingOrder)
+    set_order = []
+
+    if len(new_rating) != len(current_list):
+        print('ERROR CAUGHT- List Lenghts Do Not Match')
+        for i in range(len(current_list)):
+            set_order.append(str(i+1))
+        
+        current_ratings.ratingOrder = convert_to_string(set_order)
+        current_ratings.save()
+
+        return set_order
+    else:
+        return new_rating
+
+
+
 # Function takes two arguments. The first argument
 # is a list of objects. The second argument is a
 # list of integers to be used as pointers for an
@@ -42,7 +61,7 @@ def arrange_list(the_list, order):
 
     for o in the_order:
         ordered_list.append(initial_list[int(o)-1])
-    
+
     return ordered_list
 
 # Simple function that returns a list of 2
@@ -157,7 +176,8 @@ def results(request):
 def vote(request, id=None):
     rated_items = RatedItem.objects.all() #Grab all items. Right now thats okay - only beatles in RatedItems. Will need to filter objects in the future
     curr_rating = CurrentRating.objects.get(pk=1) #Grabs the first object in CurrentRating, which is pointer list to beatles ratings. Wlii need to be dynamic in future
-    current_rating = parse_to_array(curr_rating.ratingOrder)
+    #current_rating = parse_to_array(curr_rating.ratingOrder)
+    current_rating = set_current_ratings(rated_items, curr_rating)
     arranged_list = arrange_list(rated_items, current_rating)
     compare_random = get_random(current_rating)
     objects_to_compare = get_objects_to_compare(arranged_list, compare_random)

@@ -52,7 +52,7 @@ body {
 }
 
 /* Header */
-header {
+/*header {
     background-color: black;
     color: #fff;
     padding: 20px;
@@ -79,16 +79,19 @@ header a:hover {
 .right_area {
     float: right;
     margin-top: -20px;
-}
+}*/
 
 /* Sidebar */
 .wrapper {
+    padding-top: 75px;
     display: flex;
     text-decoration: none;
     transition: all 0.3s;
 }
 
 #sidebar {
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
     padding-top: 40px;
     padding-left: 10px;
     min-width: 260px;
@@ -98,8 +101,12 @@ header a:hover {
     transition: all 0.3s;
 }
 
+.sidebar-item {
+    color: #fff;
+}
+
 #sidebar.active {
-    margin-left: -250px;
+    margin-left: -260px;
 }
 
 #sidebar.sidebar-header {
@@ -109,6 +116,7 @@ header a:hover {
 
 #sidebar ul.components {
     padding: 20px 0;
+    background: black;
 }
 
 #content {
@@ -118,6 +126,7 @@ header a:hover {
     transition: all 0.3s;
 }
 
+
 .ordered {
     display: list-item;
 }
@@ -126,15 +135,44 @@ header a:hover {
 @media (max-width: 768px) {
     body {
         background-image: none;
-    background-color: #151515;
-    background-position: 79% 15%;
-    text-align: left;
+        background-color: #151515;
+        background-position: 79% 15%;
+        text-align: left;
     }
     #sidebar {
         margin-left: -250px;
     }
     #sidebar.active {
         margin-left: 0;
+    }
+
+    .vote-heading {
+        font-size: 20px;
+    }
+
+    .compare {
+        position: relative;
+        text-align: left;
+    }
+
+    .vote-table {
+        margin-left: 30px;
+    }
+
+    .table-sm {
+        margin: 2em;
+    }
+
+    #btn-1 {
+        width: 70%;
+        height: auto;
+        border: 1px #fff;
+    }
+
+    #btn-2 {
+        width: 70%;
+        height: auto;
+        border: 1px #fff;
     }
 }
 

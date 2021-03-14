@@ -6,3 +6,9 @@ The results are saved as a list of integers that are pointers to the primary key
 
 Each model has a foreign key field - ItemGroup - that can be used in the future to expand the program to compare other items - (books, movies, etc.)
 
+Application was built using: 
+* Python version 3.8.2
+* Django version 3.1.7
+* Django-Widget-Tweaks version 1.4.8
+* Bootstrap 4
+* JQuery version 3.5.1

@@ -1,4 +1,4 @@
-#KCs_Choice
+# KC's Choice
 
 A site built using Django that provides a ranking order of Beatles songs - best to worst - that is continually updated as the user selects between two random songs. If the song selected is currently rated lower than the other song that it is being compared to, it will replace that song in the current ranking and the other song will be pushed down one spot. All the songs rated between the two songs will be pushed down as well.
 
